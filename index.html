@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="width:100%;height:100vh">
+    <div id='app'>
+        <canvas width="800" height="800" id="chess"></canvas>
+    </div>
+</body>
+<script>
+    let canvas = document.querySelector('#chess')
+    let ctx = canvas.getContext('2d')
+    let flag = true
+    let color = ()=>{return flag?'black':'white'}
+    let width = 600, height = 600, size = 600, num = 16, step = 50;
+    size = num * step
+    ctx.fillStyle = '#f6cb65'
+    ctx.fillRect(0,0,size,size)
+    ctx.fillStyle = 'grey'
+    for(let one = 0; one<=size;one+=step){
+        ctx.moveTo(0, one)
+        ctx.lineTo(size, one)
+        ctx.moveTo(one, 0)
+        ctx.lineTo(one, size)
+    }
+    
+    ctx.stroke()
+    canvas.addEventListener('click', (e)=>{
+        let x = Math.round(e.layerX/step)*step
+        let y = Math.round(e.layerY/step)*step
+        ctx.moveTo(x,y)
+        ctx.beginPath()
+        ctx.fillStyle = flag?'black':'white'
+        ctx.arc(x,y,step/4,0,2*Math.PI, false)
+        ctx.fill()
+        flag = !flag
+        ctx.save()
+    })
+</script>
+<style>
+    #chess {
+        width: 800px;
+        height: 800px;
+    }
+    #app {
+        display:flex;
+        height: 100vh;
+        align-items: center;
+        justify-content:space-around
+    }
+</style>
+</html>
