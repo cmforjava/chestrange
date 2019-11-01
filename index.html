@@ -1,56 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>chestrange</title>
-</head>
-<body style="width:100%;height:100vh">
-    <div id='app'>
-        <canvas width="800" height="800" id="chess"></canvas>
-    </div>
-</body>
-<script>
-    let canvas = document.querySelector('#chess')
-    let ctx = canvas.getContext('2d')
-    let flag = true
-    let color = ()=>{return flag?'black':'white'}
-    let width = 600, height = 600, size = 600, num = 16, step = 50;
-    size = num * step
-    ctx.fillStyle = '#f6cb65'
-    ctx.fillRect(0,0,size,size)
-    ctx.fillStyle = 'grey'
-    for(let one = 0; one<=size;one+=step){
-        ctx.moveTo(0, one)
-        ctx.lineTo(size, one)
-        ctx.moveTo(one, 0)
-        ctx.lineTo(one, size)
-    }
-    
-    ctx.stroke()
-    canvas.addEventListener('click', (e)=>{
-        let x = Math.round(e.layerX/step)*step
-        let y = Math.round(e.layerY/step)*step
-        ctx.moveTo(x,y)
-        ctx.beginPath()
-        ctx.fillStyle = flag?'black':'white'
-        ctx.arc(x,y,step/4,0,2*Math.PI, false)
-        ctx.fill()
-        flag = !flag
-        ctx.save()
-    })
-</script>
-<style>
-    #chess {
-        width: 800px;
-        height: 800px;
-    }
-    #app {
-        display:flex;
-        height: 100vh;
-        align-items: center;
-        justify-content:space-around
-    }
-</style>
-</html>
+<!DOCTYPE html><html style=height:100%><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=0"><title>肉团</title><style>.skeleton {
+        position: fixed;
+        height: 100%;
+        overflow: hidden;
+        padding: 15px;
+        box-sizing: border-box;
+        background: #fff;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+      .skeleton-nav {
+        height: 110px;
+        background: #eee;
+        margin-bottom: 15px;
+      }
+      .skeleton-swiper {
+        height: 440px;
+        background: #eee;
+        margin-bottom: 15px;
+      }
+      .skeleton-tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0 -15px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .skeleton-tabs-item {
+        width: 33%;
+        height: 80px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .skeleton-tabs-item span {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        border-radius: 55px;
+        background: #eee;
+      }
+      .skeleton-banner {
+        height: 250px;
+        background: #eee;
+        margin-bottom: 15px;
+      }
+      .skeleton-productions {
+        height: 50px;
+        margin-bottom: 15px;
+        background: #eee;
+      }</style><link href=./static/css/app.41988342467a4c392da14cbb04440545.css rel=stylesheet></head><body style=height:100%><div id=app-box><div data-server-rendered=true class="skeleton page"><div class=skeleton-nav style=height:200px;></div><ul class=skeleton-tabs><li class=skeleton-tabs-item><span></span></li><li class=skeleton-tabs-item><span></span></li><li class=skeleton-tabs-item><span></span></li></ul><div class=skeleton-nav></div><div class=skeleton-nav></div><div class=skeleton-nav></div><div class=skeleton-nav></div><div class=skeleton-nav></div></div></div><script type=text/javascript src=./static/js/manifest.9fffe419e5b07484bce2.js></script><script type=text/javascript src=./static/js/vendor.fed1a0e14a62b4685b2a.js></script><script type=text/javascript src=./static/js/app.fbceb956b78ba57fc28f.js></script></body></html>
